@@ -7,6 +7,7 @@ gem 'actionpack', RAILS_VERSION
 gem 'railties', RAILS_VERSION
 
 gem 'mongoid'
+gem 'kgio', '~> 2.9.2'
 
 gem 'mongoid_rails_migrations'
 gem 'devise'
@@ -86,7 +87,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano', '~> 2.0', :require => false
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
 
   # better errors
   gem 'better_errors'
@@ -107,10 +111,6 @@ group :test do
   gem 'timecop'
   gem 'coveralls', :require => false
   gem 'mongoid-rspec', :require => false
-end
-
-group :heroku, :production do
-  gem 'unicorn', :require => false
 end
 
 
